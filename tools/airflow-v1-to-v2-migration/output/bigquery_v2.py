@@ -3,9 +3,9 @@ from datetime import timedelta, datetime
 
 from airflow import DAG
 from airflow.models import Variable
-#Migration Utility Generated Comment -- Change Type = Changes in import , Impact = Import Statement Changed
+# Migration Utility Generated Comment -- Change Type = Changes in import , Impact = Import Statement Changed
 from airflow.providers.google.cloud.operators.bigquery import BigQueryExecuteQueryOperator
-#Migration Utility Generated Comment -- Change Type = Changes in import , Impact = Import Statement Changed
+# Migration Utility Generated Comment -- Change Type = Changes in import , Impact = Import Statement Changed
 from airflow.providers.google.cloud.operators.bigquery import BigQueryCheckOperator
 
 
@@ -78,7 +78,7 @@ t2 = BigQueryCheckOperator(
     )
 
 ## Task 3: create a github daily metrics partition table
-#Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = Operator Name Change
+# Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = Operator Name Change
 t3 = BigQueryExecuteQueryOperator(
         task_id='bq_write_to_github_daily_metrics',
         sql='''
@@ -113,7 +113,7 @@ t3 = BigQueryExecuteQueryOperator(
     )
 
 ## Task 4: aggregate past github events to daily partition table
-#Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = Operator Name Change
+# Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = Operator Name Change
 t4 = BigQueryExecuteQueryOperator(
         task_id='bq_write_to_github_agg',
         sql='''
@@ -159,7 +159,7 @@ t4 = BigQueryExecuteQueryOperator(
     )
 
 # Task 5: aggregate hacker news data to a daily partition table
-#Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = Operator Name Change
+# Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = Operator Name Change
 t5 = BigQueryExecuteQueryOperator(
     task_id='bq_write_to_hackernews_agg',
     sql='''
@@ -195,7 +195,7 @@ t5 = BigQueryExecuteQueryOperator(
     )
 
 # Task 6: join the aggregate tables
-#Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = Operator Name Change
+# Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = Operator Name Change
 t6 = BigQueryExecuteQueryOperator(
     task_id='bq_write_to_hackernews_github_agg',
     sql='''

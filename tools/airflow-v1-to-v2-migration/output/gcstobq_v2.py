@@ -46,7 +46,7 @@ if gcs_to_bq is not None:
         dag=dag)
 
     # [START howto_operator_gcs_to_bq]
-#Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = Operated changed
+# Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = Operator Name Change
     load_csv = gcs_to_bq.GCSToBigQueryOperator(
         task_id='gcs_to_bq_example',
         bucket='cloud-samples-data',

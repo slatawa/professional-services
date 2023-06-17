@@ -24,14 +24,12 @@ Example Airflow DAG that creates DataProc cluster.
 import os
 import airflow
 from airflow import models
-from airflow.contrib.operators.dataproc_operator import (
-#Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = None
-    DataprocCreateClusterOperator,
-#Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = None
-    DataprocDeleteClusterOperator
-)
-#Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = None
-from airflow.contrib.operators.dataproc_operator import DataprocCreateClusterOperator
+# Migration Utility Generated Comment -- Change Type = Changes in import , Impact = Import Statement Changed
+from airflow.providers.google.cloud.operators.dataproc import DataprocCreateClusterOperator
+# Migration Utility Generated Comment -- Change Type = Changes in import , Impact = Import Statement Changed
+from airflow.providers.google.cloud.operators.dataproc import DataprocDeleteClusterOperator
+# Migration Utility Generated Comment -- Change Type = Changes in import , Impact = Import Statement Changed
+from airflow.providers.google.cloud.operators.dataproc import DataprocCreateClusterOperator
 
 PROJECT_ID = os.environ.get('GCP_PROJECT_ID', 'an-id')
 CLUSTER_NAME = os.environ.get('GCP_DATAPROC_CLUSTER_NAME', 'example-project')
@@ -43,7 +41,7 @@ with models.DAG(
     default_args={"start_date": airflow.utils.dates.days_ago(1)},
     schedule_interval=None,
 ) as dag:
-#Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = None
+# Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = None
     create_cluster = DataprocCreateClusterOperator(
         task_id="create_cluster",
         cluster_name=CLUSTER_NAME,
@@ -52,7 +50,7 @@ with models.DAG(
         region=REGION,
     )
 
-#Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = None
+# Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = None
     delete_cluster = DataprocDeleteClusterOperator(
         task_id="delete_cluster",
         project_id=PROJECT_ID,

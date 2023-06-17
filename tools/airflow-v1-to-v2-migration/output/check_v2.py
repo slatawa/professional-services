@@ -35,7 +35,7 @@ from future.backports.urllib.parse import urlparse
 
 from airflow import models
 from airflow.contrib.operators.gcp_cloud_build_operator import CloudBuildCreateBuildOperator
-#Migration Utility Generated Comment -- Change Type = Changes in import , Impact = Import Statement Changed
+# Migration Utility Generated Comment -- Change Type = Changes in import , Impact = None
 from airflow.operators.bash import BashOperator
 from airflow.utils import dates
 

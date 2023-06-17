@@ -1,5 +1,5 @@
 from airflow import DAG
-#Migration Utility Generated Comment -- Change Type = Changes in import , Impact = Import Statement Changed
+# Migration Utility Generated Comment -- Change Type = Changes in import , Impact = Import Statement Changed
 from airflow.operators.python import ShortCircuitOperator
 from datetime import datetime
 
