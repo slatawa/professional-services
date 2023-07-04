@@ -75,7 +75,6 @@ class MigrationUtility:
                     mod_name, imported_names = parse_import_statement(line)
                     if mod_name is not None:
                         for idx, rec in enumerate(imported_names):
-
                             imp_stmt = ''
                             if mod_name:
                                 imp_stmt = 'from ' + mod_name + ' '
