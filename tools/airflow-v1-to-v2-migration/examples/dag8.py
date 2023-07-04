@@ -28,6 +28,7 @@ with DAG('composer-quickstart-geh', schedule_interval=timedelta(days=1),
          default_args=DEFAULT_DAG_ARGS) as dag:
 
     # Create a Cloud Dataproc cluster.
+# Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = None
     CREATE_DATAPROC_CLUSTER = DataprocClusterCreateOperator(
         task_id='create_dataproc_cluster',
         cluster_name='quickstart-cluster-{{ ds_nodash }}',
@@ -37,7 +38,8 @@ with DAG('composer-quickstart-geh', schedule_interval=timedelta(days=1),
 
     # Run the Hadoop wordcount example installed on the Cloud Dataproc
     # cluster master node.
-    RUN_DATAPROC_HADOOP = DataProcHadoopOperator(
+# Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = Operator Name Change
+    RUN_DATAPROC_HADOOP = DataprocSubmitHadoopJobOperator(
         task_id='run_dataproc_hadoop',
         main_jar=WORDCOUNT_JAR,
         cluster_name='quickstart-cluster-{{ ds_nodash }}',
@@ -45,6 +47,7 @@ with DAG('composer-quickstart-geh', schedule_interval=timedelta(days=1),
         )
 
     # Delete the Cloud Dataproc cluster.
+# Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = None
     DELETE_DATAPROC_CLUSTER = DataprocClusterDeleteOperator(
         task_id='delete_dataproc_cluster',
         cluster_name='quickstart-cluster-{{ ds_nodash }}'

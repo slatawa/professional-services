@@ -21,7 +21,7 @@ from typing import Any
 
 import airflow
 from airflow import models
-from airflow.operators import bash_operator
+from airflow.operators.bash_operator import BashOperator
 
 gcs_to_bq = None  # type: Any
 try:

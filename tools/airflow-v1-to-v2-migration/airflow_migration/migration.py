@@ -75,6 +75,7 @@ class MigrationUtility:
                     mod_name, imported_names = parse_import_statement(line)
                     if mod_name is not None:
                         for idx, rec in enumerate(imported_names):
+
                             imp_stmt = ''
                             if mod_name:
                                 imp_stmt = 'from ' + mod_name + ' '
@@ -91,11 +92,7 @@ class MigrationUtility:
                                     temp.write(comment)
                                 temp.write(self.replacement_dict[imp_stmt][2] + '\n')
                             else:
-                                if ',' in line:
-                                    temp.write(line)
-                                    break
-                                else:
-                                    temp.write(line)
+                                temp.write(imp_stmt + '\n')
                     else:
                         # extract function call
                         matches = re.findall(self.function_regex, line)

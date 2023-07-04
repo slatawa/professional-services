@@ -1,5 +1,6 @@
 import json
-from datetime import timedelta, datetime
+from datetime import timedelta
+from datetime import datetime
 
 from airflow import DAG
 from airflow.models import Variable

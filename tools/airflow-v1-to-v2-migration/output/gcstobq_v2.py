@@ -21,7 +21,8 @@ from typing import Any
 
 import airflow
 from airflow import models
-from airflow.operators import bash_operator
+# Migration Utility Generated Comment -- Change Type = Changes in import , Impact = None
+from airflow.operators.bash import BashOperator
 
 gcs_to_bq = None  # type: Any
 try:

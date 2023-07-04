@@ -1,8 +1,11 @@
-from datetime import timedelta, datetime
+from datetime import timedelta
+from datetime import datetime
 import os
 
 from airflow import DAG
-from airflow.contrib.operators.dataproc import DataprocClusterCreateOperator, DataprocClusterDeleteOperator, DataProcHadoopOperator
+from airflow.contrib.operators.dataproc import DataprocClusterCreateOperator
+from airflow.contrib.operators.dataproc import DataprocClusterDeleteOperator
+from airflow.contrib.operators.dataproc import DataProcHadoopOperator
 from airflow.models import Variable
 
 OUTPUT_FILE=os.path.join(Variable.get(
@@ -29,6 +32,7 @@ with DAG('composer-quickstart-geh', schedule_interval=timedelta(days=1),
 
     # Create a Cloud Dataproc cluster.
 # Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = None
+# Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = None
     CREATE_DATAPROC_CLUSTER = DataprocCreateClusterOperator(
         task_id='create_dataproc_cluster',
         cluster_name='quickstart-cluster-{{ ds_nodash }}',
@@ -47,6 +51,7 @@ with DAG('composer-quickstart-geh', schedule_interval=timedelta(days=1),
         )
 
     # Delete the Cloud Dataproc cluster.
+# Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = None
 # Migration Utility Generated Comment -- Change Type = Changes in Operator , Impact = None
     DELETE_DATAPROC_CLUSTER = DataprocDeleteClusterOperator(
         task_id='delete_dataproc_cluster',

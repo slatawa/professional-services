@@ -24,14 +24,11 @@ Example Airflow DAG that creates DataProc cluster.
 import os
 import airflow
 from airflow import models
-# Migration Utility Generated Comment -- Change Type = Changes in import , Impact = Import Statement Changed
-from airflow.providers.google.cloud.operators.dataproc import DataprocCreateClusterOperator
-# Migration Utility Generated Comment -- Change Type = Changes in import , Impact = Import Statement Changed
-from airflow.providers.google.cloud.operators.dataproc import DataprocDeleteClusterOperator
-# Migration Utility Generated Comment -- Change Type = Changes in import , Impact = Import Statement Changed
-from airflow.providers.google.cloud.operators.dataproc import DataprocCreateClusterOperator
+from airflow.contrib.operators.dataproc import DataprocClusterCreateOperator
+from airflow.contrib.operators.dataproc import DataprocClusterDeleteOperator
+from airflow.contrib.operators.dataproc import DataprocClusterCreateOperator
 
-PROJECT_ID = os.environ.get('GCP_PROJECT_ID', 'an-id')
+PROJECT_ID = os.environ.get('GCP_PROJECT_ID', 'an-id')›
 CLUSTER_NAME = os.environ.get('GCP_DATAPROC_CLUSTER_NAME', 'example-project')
 REGION = os.environ.get('GCP_LOCATION', 'europe-west1')
 ZONE = os.environ.get('GCP_REGION', 'europe-west-1b')
