@@ -111,11 +111,9 @@ class MigrationUtility:
                                         temp.write(comment)
                                     line = line.replace(rec, self.replacement_dict[rec][2])    
                                     
-                                    if rec+"(" in self.replacement_dict or rec+" (" in self.replacement_dict:
-                                        space_count = len(line) - len(line.lstrip())
-                                        spaces=''
-                                    for i in range(space_count+4) :
-                                        spaces = ' '+spaces
+                                if rec+"(" in self.replacement_dict:
+                                    space_count = len(line) - len(line.lstrip())
+                                    space_count +=4
                                     if self.add_comments:
                                         if self.comments:
                                             comment = '# ' + self.comments + '\n'
@@ -124,7 +122,7 @@ class MigrationUtility:
                                                       self.replacement_dict[rec+"("][1] + " , Impact = " + \
                                                       self.replacement_dict[rec+"("][3] + '\n'
                                         temp.write(comment)
-                                    line = line+spaces +self.replacement_dict[rec+"("][2]+",\n"
+                                    line = line+' '*space_count+self.replacement_dict[rec+"("][2]+",\n"
                                         
                         temp.write(line)
 
