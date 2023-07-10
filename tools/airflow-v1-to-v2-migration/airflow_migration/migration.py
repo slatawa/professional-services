@@ -31,7 +31,8 @@ class MigrationUtility:
         self.add_comments = add_comments
         self.comments = comments
         self.report_generation = report_generation
-        self.function_regex = r'(\w+)\('
+        # self.function_regex = r'(\w+)\('
+        self.function_regex = r'(\w+(?:\.\w+)*)\('
 
     def load_rules(self):
         with open(self.rules_file, 'r') as f:
@@ -91,7 +92,7 @@ class MigrationUtility:
                                     temp.write(comment)
                                 temp.write(self.replacement_dict[imp_stmt][2] + '\n')
                             else:
-                                temp.write(line)
+                                temp.write(imp_stmt + '\n')
                     else:
                         # extract function call
                         matches = re.findall(self.function_regex, line)
