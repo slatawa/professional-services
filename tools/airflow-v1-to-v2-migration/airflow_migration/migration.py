@@ -123,7 +123,7 @@ class MigrationUtility:
                                                       self.replacement_dict[rec+"("][1] + " , Impact = " + \
                                                       self.replacement_dict[rec+"("][3] + '\n'
                                         temp.write(comment)
-                                    line = line+' '*space_count+self.replacement_dict[rec+"("][2]+",\n"
+                                    line = line+' '*space_count +self.replacement_dict[rec+"("][2]+",\n"
                                         
                         temp.write(line)
 
